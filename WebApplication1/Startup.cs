@@ -55,7 +55,7 @@ namespace WebApplication1
             }
 
             app.UseRouting();
-
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
