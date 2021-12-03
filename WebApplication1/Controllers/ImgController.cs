@@ -23,15 +23,15 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            Console.WriteLine("Test");
+           
             MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("Teambcon"));
-            Console.WriteLine(dbClient);
-            var result = dbClient
+       
+            var dbList = dbClient
                 .GetDatabase("db0132")
                 .GetCollection<ImgModel>("Imgs")
                 .AsQueryable();
 
-            return new JsonResult(result);
+            return new JsonResult(dbList);
         }
 
         [HttpPost]
@@ -39,8 +39,8 @@ namespace WebApplication1.Controllers
         {
             MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("Teambcon"));
 
-            int LastDepartmentId = dbClient.GetDatabase("db0132").GetCollection<ImgModel>("Imgs").AsQueryable().Count();
-            im.ImgId = LastDepartmentId + 1;
+            int LastImgId = dbClient.GetDatabase("db0132").GetCollection<ImgModel>("Imgs").AsQueryable().Count();
+            im.ImgId = LastImgId + 1;
 
             dbClient.GetDatabase("db0132").GetCollection<ImgModel>("Imgs").InsertOne(im);
 
