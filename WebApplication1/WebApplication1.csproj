@@ -16,7 +16,7 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <Content Include="VERZEICHNISNAME\**">
+    <Content Include="api\photo\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
