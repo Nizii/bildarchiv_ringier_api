@@ -88,7 +88,7 @@ namespace WebApplication1.Controllers
 
             var update = Builders<PhotoModel>.Update.Set("Name", pm.Name)
                                                     .Set("Description", pm.Description)
-                                                    .Set("With", pm.Width)
+                                                    .Set("Width", pm.Width)
                                                     .Set("Height",pm.Height)
                                                     .Set("Filename", pm.Filename);
             
