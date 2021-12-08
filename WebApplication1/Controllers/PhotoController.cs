@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Models;
@@ -14,6 +16,7 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class PhotoController : ControllerBase
     {
+        private readonly IWebHostEnvironment _env;
         private readonly IConfiguration _configuration;
         public PhotoController(IConfiguration configuration)
         {
@@ -33,20 +36,47 @@ namespace WebApplication1.Controllers
 
             return new JsonResult(dbList);
         }
-        /*
+       
         [HttpPost]
-        public JsonResult Post(ImgModel im)
+        public JsonResult Post(PhotoModel pm)
         {
             MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("Teambcon"));
 
-            int LastImgId = dbClient.GetDatabase("db0132").GetCollection<PhotoController>("Photos").AsQueryable().Count();
-            im.ImgId = LastImgId + 1;
+            int LastPhotoId = dbClient.GetDatabase("db0132").GetCollection<PhotoModel>("Photos").AsQueryable().Count();
+            pm.PhotoId = LastPhotoId + 1;
 
-            dbClient.GetDatabase("db0132").GetCollection<ImgModel>("Photos").InsertOne(im);
+            dbClient
+                .GetDatabase("db0132")
+                .GetCollection<PhotoModel>("Photos")
+                .InsertOne(pm);
 
             return new JsonResult("Added Successfully");
         }
-        
+
+        [Route("SaveFile")]
+        [HttpPost]
+        public JsonResult SaveFile()
+        {
+            try
+            {
+                var httpRequest = Request.Form;
+                var postedFile = httpRequest.Files[0];
+                string filename = postedFile.FileName;
+                //var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
+                var physicalPath = "https://bildarchivaarau.azurewebsites.net/photos/" + filename;
+                //var physicalPath = "C:/Users/nizam/Desktop/WebExtendet/Projekt/api/WebApplication1/WebApplication1/Photos/" + filename;
+                using (var stream = new FileStream(physicalPath, FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                }
+                return new JsonResult(filename);
+            }
+            catch (Exception)
+            {
+                return new JsonResult("anonymous.png");
+            }
+        }
+        /*
         [HttpPut]
         public JsonResult Put(ImgModel im)
         {
@@ -69,7 +99,7 @@ namespace WebApplication1.Controllers
         {
             MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("Teambcon"));
 
-            var filter = Builders<PhotoModel>.Filter.Eq("PhotoID", id);
+            var filter = Builders<PhotoModel>.Filter.Eq("PhotoId", id);
 
 
             dbClient.GetDatabase("db0132").GetCollection<PhotoModel>("Photos").DeleteOne(filter);
