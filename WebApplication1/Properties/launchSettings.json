@@ -21,7 +21,7 @@
     "WebApplication1": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/photo",
+      "launchUrl": "/home/site/wwwroot/api/photo",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
