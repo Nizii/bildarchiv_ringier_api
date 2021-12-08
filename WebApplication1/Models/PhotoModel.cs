@@ -4,7 +4,9 @@ namespace WebApplication1.Models
 {
     public class PhotoModel
     {
-        private const string PHOTO_URL = "http://localhost:5000/Photos/";
+        //private const string PHOTO_URL = "http://localhost:5000/Photos/";
+        private const string PHOTO_URL = "C:/home/site/wwwroot/Photos/";
+
         public ObjectId Id { get; set; }
         public int PhotoId { get; set; }
         public string Filename { get; set; }
