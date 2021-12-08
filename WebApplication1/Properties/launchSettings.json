@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/photo",
+      "launchUrl": "photo",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -21,7 +21,7 @@
     "WebApplication1": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "/home/site/wwwroot/api/photo",
+      "launchUrl": "img",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

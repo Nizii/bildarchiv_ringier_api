@@ -5,7 +5,7 @@ namespace WebApplication1.Models
     public class PhotoModel
     {
         //private const string PHOTO_URL = "http://localhost:5000/Photos/";
-        private const string PHOTO_URL = "C:/home/site/wwwroot/Photos/";
+        private const string PHOTO_URL = "C:/home/site/wwwroot/api/img/";
 
         public ObjectId Id { get; set; }
         public int PhotoId { get; set; }
