@@ -16,7 +16,7 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class PhotoController : ControllerBase
     {
-        //private readonly IWebHostEnvironment _env;
+        private readonly IWebHostEnvironment _env;
         private readonly IConfiguration _configuration;
         public PhotoController(IConfiguration configuration)
         {
@@ -53,7 +53,7 @@ namespace WebApplication1.Controllers
             return new JsonResult("Added Successfully");
         }
 
-        /*
+        
         [Route("SaveFile")]
         [HttpPost]
         public JsonResult SaveFile()
@@ -62,8 +62,8 @@ namespace WebApplication1.Controllers
             {
                 var httpRequest = Request.Form;
                 var postedFile = httpRequest.Files[0];
-                string filename = postedFile.Filename;
-                //var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
+                string filename = postedFile.FileName;
+                var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
      
                 //var physicalPath = "C:/Users/nizam/Desktop/WebExtendet/Projekt/api/WebApplication1/WebApplication1/Photos/" + filename;
                 using (var stream = new FileStream(physicalPath, FileMode.Create))
@@ -96,7 +96,7 @@ namespace WebApplication1.Controllers
 
             return new JsonResult("Updated Successfully");
         }
-        */
+        
 
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
