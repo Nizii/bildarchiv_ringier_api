@@ -64,7 +64,7 @@ namespace WebApplication1.Controllers
                 var postedFile = httpRequest.Files[0];
                 string filename = postedFile.FileName;
                 //var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
-                var physicalPath = "https://bildarchivaarau.azurewebsites.net/photos/" + filename;
+     
                 //var physicalPath = "C:/Users/nizam/Desktop/WebExtendet/Projekt/api/WebApplication1/WebApplication1/Photos/" + filename;
                 using (var stream = new FileStream(physicalPath, FileMode.Create))
                 {
