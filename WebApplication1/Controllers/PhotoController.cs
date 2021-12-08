@@ -62,7 +62,7 @@ namespace WebApplication1.Controllers
             {
                 var httpRequest = Request.Form;
                 var postedFile = httpRequest.Files[0];
-                string filename = postedFile.FileName;
+                string filename = postedFile.Filename;
                 //var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
      
                 //var physicalPath = "C:/Users/nizam/Desktop/WebExtendet/Projekt/api/WebApplication1/WebApplication1/Photos/" + filename;
@@ -90,7 +90,7 @@ namespace WebApplication1.Controllers
                                                     .Set("Description", pm.Description)
                                                     .Set("With", pm.Width)
                                                     .Set("Height",pm.Height)
-                                                    .Set("FileName", pm.FileName);
+                                                    .Set("Filename", pm.Filename);
             
             dbClient.GetDatabase("db0132").GetCollection<PhotoModel>("Photos").UpdateOne(filter, update);
 
