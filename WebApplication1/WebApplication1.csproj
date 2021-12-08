@@ -16,7 +16,7 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <Content Include="photo\**">
+    <Content Include="Photos\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
