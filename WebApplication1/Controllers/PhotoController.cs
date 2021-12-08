@@ -53,6 +53,7 @@ namespace WebApplication1.Controllers
             return new JsonResult("Added Successfully");
         }
 
+        /*
         [Route("SaveFile")]
         [HttpPost]
         public JsonResult SaveFile()
@@ -76,23 +77,26 @@ namespace WebApplication1.Controllers
                 return new JsonResult("anonymous.png");
             }
         }
-        /*
+        */
+
         [HttpPut]
-        public JsonResult Put(ImgModel im)
+        public JsonResult Put(PhotoModel pm)
         {
             MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("Teambcon"));
 
-            var filter = Builders<PhotoModel>.Filter.Eq("ImgId", im.ImgId);
+            var filter = Builders<PhotoModel>.Filter.Eq("PhotoId", pm.PhotoId);
 
-            var update = Builders<PhotoModel>.Update.Set("ImgName", im.ImgName);
-
-
-
+            var update = Builders<PhotoModel>.Update.Set("Name", pm.Name)
+                                                    .Set("Description", pm.Description)
+                                                    .Set("With", pm.Width)
+                                                    .Set("Height",pm.Height)
+                                                    .Set("FileName", pm.FileName);
+            
             dbClient.GetDatabase("db0132").GetCollection<PhotoModel>("Photos").UpdateOne(filter, update);
 
             return new JsonResult("Updated Successfully");
         }
-        */
+        
 
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
