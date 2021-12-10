@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <nuxt-link v-if="image.Category.length == 1" :to="`/${image.Category}`">
+      <nuxt-link :to="`/${image.Category}`">
         <button class="button-to-subpage">transition</button>
       </nuxt-link>
     </figure>

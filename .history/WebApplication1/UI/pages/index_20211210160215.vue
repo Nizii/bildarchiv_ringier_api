@@ -22,10 +22,9 @@
           {{ image.Description }}
         </div>
       </div>
-
-      <nuxt-link v-if="image.Category.length == 1" :to="`/${image.Category}`">
-        <button class="button-to-subpage">transition</button>
-      </nuxt-link>
+        <nuxt-link v-if="image.Category.length == 1" to="`/${image.Category}`">
+          <button class="button-to-subpage">transition</button>
+        </nuxt-link>
     </figure>
   </div>
 </template>
@@ -59,7 +58,5 @@ export default {
 
 .button-to-subpage {
   border: 10px solid green;
-
 }
-
 </style>

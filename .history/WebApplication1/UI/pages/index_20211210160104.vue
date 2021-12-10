@@ -21,11 +21,10 @@
         <div :id="[`description-${image.PhotoId}`]" class="description">
           {{ image.Description }}
         </div>
+        <nuxt-link v-if="image.Category.length == 1" to="`/${image.Category}`">
+          <button class="button-to-subpage">transition</button>
+        </nuxt-link>
       </div>
-
-      <nuxt-link v-if="image.Category.length == 1" :to="`/${image.Category}`">
-        <button class="button-to-subpage">transition</button>
-      </nuxt-link>
     </figure>
   </div>
 </template>
@@ -59,7 +58,5 @@ export default {
 
 .button-to-subpage {
   border: 10px solid green;
-
 }
-
 </style>

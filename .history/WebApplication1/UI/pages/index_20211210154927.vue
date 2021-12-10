@@ -12,7 +12,7 @@
             :src="image.Link"
             :alt="image.Name"
             :id="[`image-${image.PhotoId}`]"
-            :class="[`category-${image.Category}`]"
+            :class="[`category--${image.Category}`]"
           />
         </section>
         <figCaption :id="[`image-title-${image.PhotoId}`]" class="caption">
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <nuxt-link v-if="image.Category.length == 1" :to="`/${image.Category}`">
+      <nuxt-link :to="`/${image.Category}`">
         <button class="button-to-subpage">transition</button>
       </nuxt-link>
     </figure>
