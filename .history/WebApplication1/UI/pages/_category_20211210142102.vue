@@ -1,14 +1,18 @@
 <template>
-  <div class="images">
+  <div class="hello">
+    <h1>peace</h1>
+    <h1>{{ images }}</h1>
+  </div>
+  <!-- <div class="category">
+    <button class="border" @click="handleBack">Go back in history</button>
     <figure
       v-for="(image, index) in images"
       :key="index"
       :class="[`figure-${index}`]"
     >
-      <div class="top-pages" v-if="image.Category.length == 1">
-        <section class="w-full h-screen">
+      <div class="top-pages" v-if="image.Category == 2">
+        <section>
           <img
-            class="object-cover w-full h-full"
             :src="image.Link"
             :alt="image.Name"
             :id="[`image-${image.PhotoId}`]"
@@ -22,12 +26,8 @@
           {{ image.Description }}
         </div>
       </div>
-
-      <nuxt-link :to="`/${image.Category}`">
-        <button class="button-to-subpage">transition</button>
-      </nuxt-link>
     </figure>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -39,27 +39,18 @@ export default {
   },
   async created() {
     const response = await this.$axios.get(
-      "http://bildarchivaarau.azurewebsites.net/api/photo",
-      {}
+      "http://bildarchivaarau.azurewebsites.net/api/photo"
     );
-    this.images = response.data;
+    console.log(response.data.data)
+    this.image = response.data.data.filter(e => {
+      e.Category === this.$route.params.Category
+      
+    })
+  },
+  methods: {
+    handleBack() {
+      this.$router.go(-1);
+    },
   },
 };
 </script>
-
-
-<style scoped>
-.category-1 {
-  border: 10px solid red;
-}
-
-.category-2 {
-  border: 10px solid blue;
-}
-
-.button-to-subpage {
-  border: 10px solid green;
-
-}
-
-</style>

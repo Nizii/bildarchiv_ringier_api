@@ -5,7 +5,8 @@
       :key="index"
       :class="[`figure-${index}`]"
     >
-      <section class="w-full h-screen">
+    
+      <section v-if="image.Category === 1" class="w-full h-screen">
         <img
           class="object-cover w-full h-full"
           :src="image.Link"

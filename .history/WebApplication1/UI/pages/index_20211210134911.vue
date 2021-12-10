@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <nuxt-link :to="`/${image.Category}`">
+      <nuxt-link :to="`/pages/${image.Category}`">
         <button class="button-to-subpage">transition</button>
       </nuxt-link>
     </figure>

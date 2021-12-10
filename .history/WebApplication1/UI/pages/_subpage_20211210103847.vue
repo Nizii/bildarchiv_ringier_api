@@ -1,0 +1,37 @@
+<template>
+  <div class="post">
+    <nuxt-link to="/">Back to posts</nuxt-link>
+    <button class="border" @click="handleBack">Go back in history</button>
+    <h1>{{ post.title }}</h1>
+    <div>{{ post.body }}</div>
+
+    <figure
+      v-for="(image, index) in images"
+      :key="index"
+      :class="[`figure-${index}`]"
+    >
+      <figCaption :id="[`image-title-${image.PhotoId}`]" class="caption">
+        {{ index }}{{ image.PhotoId }}</figCaption
+      >
+      <div :id="[`description-${image.PhotoId}`]" class="description">
+        {{ image.Description }}
+      </div>
+    </figure>
+  </div>
+</template>
+
+<script>
+export default {
+  async asyncData({ params, $axios }) {
+    const post = await $axios.$get(
+      `https://jsonplaceholder.typicode.com/posts/${params.id}`
+    );
+    return { post };
+  },
+  methods: {
+    handleBack() {
+      this.$router.go(-1);
+    },
+  },
+};
+</script>

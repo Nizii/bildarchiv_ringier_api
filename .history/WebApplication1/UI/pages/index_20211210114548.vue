@@ -5,7 +5,7 @@
       :key="index"
       :class="[`figure-${index}`]"
     >
-      <div class="top-pages" v-if="image.Category.length == 1">
+      <div class="top-pages" v-if="image.Category === 1">
         <section class="w-full h-screen">
           <img
             class="object-cover w-full h-full"
@@ -22,8 +22,7 @@
           {{ image.Description }}
         </div>
       </div>
-
-      <nuxt-link :to="`/${image.Category}`">
+      <nuxt-link :to="`/pages/${image.PhotoId}`">
         <button class="button-to-subpage">transition</button>
       </nuxt-link>
     </figure>
