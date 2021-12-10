@@ -36,7 +36,8 @@ namespace WebApplication1.Controllers
 
             return new JsonResult(dbList);
         }
-       
+
+        /*
         [HttpPost]
         public JsonResult Post(PhotoModel pm)
         {
@@ -86,7 +87,7 @@ namespace WebApplication1.Controllers
 
             var filter = Builders<PhotoModel>.Filter.Eq("PhotoId", pm.PhotoId);
 
-            var update = Builders<PhotoModel>.Update.Set("Name", pm.Name)
+            var update = Builders<PhotoModel>.Update.Set("Category", pm.Category)
                                                     .Set("Description", pm.Description)
                                                     .Set("Width", pm.Width)
                                                     .Set("Height",pm.Height)
@@ -96,7 +97,7 @@ namespace WebApplication1.Controllers
 
             return new JsonResult("Updated Successfully");
         }
-        
+        */
 
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
