@@ -21,7 +21,7 @@
     "WebApplication1": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "img",
+      "launchUrl": "api/photo",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
