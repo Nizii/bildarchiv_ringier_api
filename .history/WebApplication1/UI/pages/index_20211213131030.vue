@@ -93,13 +93,13 @@ export default {
 
   async created() {
     const response = await this.$axios.get(
-      "http://bildarchivaarau.azurewebsites.net/api/photo",
-      {
-      
+      "http://bildarchivaarau.azurewebsites.net/api/photo").then(response => {
+         this.tabs = response.data.filter(b => b.Category.length === 1);
       }
     );
-
-    this.images = response.data;
+    const images = response;
+    console.log(images)
+    return images;
   },
 
   methods: {

@@ -94,8 +94,7 @@ export default {
   async created() {
     const response = await this.$axios.get(
       "http://bildarchivaarau.azurewebsites.net/api/photo",
-      {
-      
+      {x
       }
     );
 

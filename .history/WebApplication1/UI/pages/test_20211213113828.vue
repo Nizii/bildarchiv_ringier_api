@@ -8,6 +8,8 @@
       v-for="(image, index) in images"
       :key="index"
       :class="[`figure-${index}`]"
+      class=""
+      v-if=""
     >
       <nav>
         <img
@@ -19,49 +21,42 @@
         <a href="/">Menü</a>
       </nav>
       <div class="top-pages" v-if="image.Category.length == 1">
-        <section
-          v-if="image.Size === 'large'"
-          class="image text-center text-bottom"
+        <!-- 
+      <section
+        v-if="image.Size === 'large'"
+        class="image text-center text-bottom"
+      >
+        <div
+          class="image-bg"
+          :style="{ backgroundImage: `url(${image.Link})` }"
         >
-          <div
-            class="image-bg"
-            :style="{ backgroundImage: `url(${image.Link})` }"
-          >
-            <div class="image-aside">
-              <h3 class="image-text">{{ image.Description }}</h3>
-            </div>
-
-            <p class="image-caption">{{ image.Filename }}</p>
-          </div>
-          <span class="image-copy">Foto: blablabla</span>
-          <nuxt-link
-            v-if="image.Category.length == 1"
-            :to="`/${image.Category}`"
-          >
-            <button class="button-to-subpage">transition</button>
-          </nuxt-link>
-        </section>
-
-        <section
-          v-if="image.Site === 'medium'"
-          class="image text-right text-top"
-        >
-          <div class="image-container">
-            <div class="image-section">
-              <img :src="image.Link" :alt="image.Name" class="image-src" />
-
-              <span class="image-copy">Foto: blablabla</span>
-            </div>
-          </div>
-
           <div class="image-aside">
-            <h2 class="image-text">
-              {{ image.Description }}
-            </h2>
-
-            <p class="image-caption">{{ image.Filename }}</p>
+            <h3 class="image-text">{{ image.Description }}</h3>
           </div>
-        </section>
+
+          <p class="image-caption">{{ image.Filename }}</p>
+        </div>
+
+        <span class="image-copy">Foto: blablabla</span>
+      </section>
+
+      <section class="image text-right text-top">
+        <div class="image-container">
+          <div class="image-section">
+            <img :src="image.Link" :alt="image.Name" class="image-src" />
+
+            <span class="image-copy">Foto: blablabla</span>
+          </div>
+        </div>
+
+        <div class="image-aside">
+          <h2 class="image-text">
+            {{ image.Description }}
+          </h2>
+
+          <p class="image-caption">{{ image.Filename }}</p>
+        </div>
+      </section> -->
 
         <section class="image text-left text-top" v-if="image.Size === 'small'">
           <div class="image-aside">
@@ -95,7 +90,9 @@ export default {
     const response = await this.$axios.get(
       "http://bildarchivaarau.azurewebsites.net/api/photo",
       {
-      
+        params: {
+          _limit: 100,
+        },
       }
     );
 
