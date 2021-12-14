@@ -95,11 +95,10 @@ export default {
     const response = await this.$axios.get(
       "http://bildarchivaarau.azurewebsites.net/api/photo",
       {
-      
       }
     );
 
-    this.images = response.data;
+    this.images = response.filter( e => e.data.Category.length === 1);
   },
 
   methods: {
