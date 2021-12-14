@@ -1,22 +1,31 @@
 
 
-  .fade-enter-active {
-    transition: transform 3s;
-}
-.fade-leave-active {
-    transition: transform 0.5s ;
-    opacity: 0.5;
-    /* transform: translateY(-300px); */
+  /* during entering and leaving : */
+  .page-enter-active, .page-leave-active {
+    position:absolute;
+    max-width:725.328px; /*make sur our content keep it's original width*/
+    transition: all .2s ease;
+  }
 
+  /* entering start */  
+  .page-enter {
+    bottom: -100%;
+  }
 
-}
-.fade-enter {
-  transition: transform 3s;
+  /* entering end */
+  .page-enter-to {
+    bottom: 0;
+  }
 
-}
-.fade-leave-to {
-    transform: translate3d(-500px, -300px 400px);
-}
+  /* leaving start */
+  .page-leave {
+    opacity: 1;
+  }
+
+  /* leaving end */
+  .page-leave-to {
+    opacity: 0;
+  }
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=IBM+Plex+Sans:wght@300;500&display=swap");
 

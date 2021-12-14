@@ -65,6 +65,7 @@
         <section class="image text-left text-top" v-if="image.Size === 'small'">
           <div class="image-aside">
             <h2 class="image-text">{{ image.Description }}</h2>
+
             <p class="image-caption">{{ image.Filename }}</p>
           </div>
           <div class="flex image-container">
@@ -73,6 +74,12 @@
               <span class="image-copy">Foto blabla</span>
             </div>
           </div>
+          <nuxt-link
+            v-if="image.Category.length == 1"
+            :to="`/${image.Category}`"
+          >
+            <button class="btn">More</button>
+          </nuxt-link>
         </section>
       </div>
     </div>

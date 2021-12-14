@@ -27,10 +27,6 @@
         <div :id="[`description-${image.PhotoId}`]" class="description">
           {{ image.Description }}
         </div>
-
-        <h3 class="image-text">{{ image.Description }}</h3>
-        <p class="image-caption">{{ image.Filename }}</p>
-        <span class="image-copy">Foto: blablabla</span>
       </div>
     </figure>
     <button class="border" @click="handleBack">Go back</button>

@@ -4,6 +4,7 @@
     <h1>{{ images }}</h1>
   </div> -->
   <div class="category">
+    <button class="border" @click="handleBack">Go back in history</button>
     <figure
       v-for="(image, index) in images"
       :key="index"
@@ -11,7 +12,7 @@
     >
       <div
         class="top-pages"
-        v-if="image.Category.endsWith($route.params.Category)"
+        v-if="image.Category.startsWith($route.params.Category)"
       >
         <section>
           <img
@@ -27,13 +28,8 @@
         <div :id="[`description-${image.PhotoId}`]" class="description">
           {{ image.Description }}
         </div>
-
-        <h3 class="image-text">{{ image.Description }}</h3>
-        <p class="image-caption">{{ image.Filename }}</p>
-        <span class="image-copy">Foto: blablabla</span>
       </div>
     </figure>
-    <button class="border" @click="handleBack">Go back</button>
   </div>
 </template>
 

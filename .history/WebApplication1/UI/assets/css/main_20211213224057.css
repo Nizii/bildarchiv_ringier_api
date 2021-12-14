@@ -4,8 +4,7 @@
     transition: transform 3s;
 }
 .fade-leave-active {
-    transition: transform 0.5s ;
-    opacity: 0.5;
+    transition: transform 3s ;
     /* transform: translateY(-300px); */
 
 

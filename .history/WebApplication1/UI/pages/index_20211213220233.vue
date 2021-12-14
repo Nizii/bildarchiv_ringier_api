@@ -15,9 +15,9 @@
           src="assets/img/logo.svg"
           alt="Abstraktes Logo"
         />
+
         <a href="/">Menü</a>
       </nav>
-
       <div class="top-pages" v-if="image.Category.length == 1">
         <section
           v-if="image.Size === 'large'"
@@ -33,7 +33,10 @@
             </div>
           </div>
           <span class="image-copy">Foto: blablabla</span>
-          <nuxt-link v-if="image.Category === 'b'" :to="`/${image.Category}`">
+          <nuxt-link
+            v-if="image.Category.length == 1"
+            :to="`/${image.Category}`"
+          >
             <button class="btn">More</button>
           </nuxt-link>
         </section>
@@ -45,9 +48,11 @@
           <div class="image-container">
             <div class="image-section">
               <img :src="image.Link" :alt="image.Name" class="image-src" />
+
               <span class="image-copy">Foto: blablabla</span>
             </div>
           </div>
+
           <div class="image-aside">
             <h2 class="image-text">
               {{ image.Description }}
@@ -55,7 +60,7 @@
             <p class="image-caption">{{ image.Filename }}</p>
           </div>
           <nuxt-link
-            v-if="image.Category === 'h' || image.Category === 'n'"
+            v-if="image.Category.length == 1"
             :to="`/${image.Category}`"
           >
             <button class="btn">More</button>
@@ -65,6 +70,7 @@
         <section class="image text-left text-top" v-if="image.Size === 'small'">
           <div class="image-aside">
             <h2 class="image-text">{{ image.Description }}</h2>
+
             <p class="image-caption">{{ image.Filename }}</p>
           </div>
           <div class="flex image-container">
@@ -73,6 +79,12 @@
               <span class="image-copy">Foto blabla</span>
             </div>
           </div>
+          <nuxt-link
+            v-if="image.Category.length == 1"
+            :to="`/${image.Category}`"
+          >
+            <button class="btn">More</button>
+          </nuxt-link>
         </section>
       </div>
     </div>
@@ -88,9 +100,12 @@ export default {
   },
 
   async created() {
-    this.images = await this.$axios
-      .get("http://bildarchivaarau.azurewebsites.net/api/photo")
-      .then((res) => res.data.filter((e) => e.Category.length === 1));
+    const response = await this.$axios.get(
+      "http://bildarchivaarau.azurewebsites.net/api/photo",
+      {}
+    );
+
+    this.images = response.data;
   },
 
   methods: {
@@ -112,5 +127,22 @@ export default {
 <style>
 .btn {
   @apply bg-transparent border border-black text-black hover:bg-black hover:text-white text-center py-2 px-4 rounded;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+header {  
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  
+  background: #333;
+  padding: 30px;
 }
 </style>
