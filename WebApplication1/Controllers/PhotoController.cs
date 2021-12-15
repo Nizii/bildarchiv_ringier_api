@@ -16,7 +16,7 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class PhotoController : ControllerBase
     {
-        private readonly IWebHostEnvironment _env;
+        //private readonly IWebHostEnvironment _env;
         private readonly IConfiguration _configuration;
         public PhotoController(IConfiguration configuration)
         {
@@ -97,7 +97,7 @@ namespace WebApplication1.Controllers
 
             return new JsonResult("Updated Successfully");
         }
-        */
+        
 
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
@@ -111,9 +111,7 @@ namespace WebApplication1.Controllers
 
             return new JsonResult("Deleted Successfully");
         }
-
-
-
+        */
     }
 }
 
