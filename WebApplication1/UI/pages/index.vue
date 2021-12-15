@@ -21,10 +21,10 @@
           >
             <div class="image-aside">
               <h3 class="image-text">{{ image.Filetext }}</h3>
-              <p class="image-caption">{{ image.Copyright }}</p>
+              <p class="image-caption">{{ image.Title }}</p>
             </div>
+            <span class="image-copy">{{ image.Copyright }}</span>
           </div>
-          <span class="image-copy">Foto: blablabla</span>
           <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
             <button class="btn">More</button>
           </nuxt-link>
@@ -37,14 +37,14 @@
           <div class="image-container">
             <div class="image-section">
               <img :src="image.Link" :alt="image.Name" class="image-src" />
-              <!-- <span class="image-copy">Foto: blablabla</span> -->
+              <span class="image-copy">{{ image.Copyright }}</span>
             </div>
           </div>
           <div class="image-aside">
             <h2 class="image-text">
               {{ image.Filetext }}
             </h2>
-            <p class="image-caption">{{ image.Copyright }}</p>
+            <p class="image-caption">{{ image.Title }}</p>
           </div>
           <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
             <button class="btn">More</button>
@@ -54,12 +54,12 @@
         <section class="image text-left text-top" v-if="image.Size === 'small'">
           <div class="image-aside">
             <h2 class="image-text">{{ image.Filetext }}</h2>
-            <p class="image-caption">{{ image.Copyright }}</p>
+            <p class="image-caption">{{ image.Title }}</p>
           </div>
           <div class="flex image-container">
             <div class="image-section">
               <img :src="image.Link" :alt="image.Name" class="image-src" />
-              <!-- <span class="image-copy">Foto blabla</span> -->
+              <span class="image-copy">{{ image.Copyright }}</span>
             </div>
           </div>
           <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
