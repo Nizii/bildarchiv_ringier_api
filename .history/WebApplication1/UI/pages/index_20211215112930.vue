@@ -24,10 +24,8 @@
               <p class="image-caption">{{ image.Copyright }}</p>
             </div>
           </div>
-          <span class="image-copy">Foto: blablabla</span>
-          <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
-            <button class="btn">More</button>
-          </nuxt-link>
+          <!-- <span class="image-copy">Foto: blablabla</span> -->
+          <buttonToChild></buttonToChild>
         </section>
 
         <section
@@ -46,9 +44,7 @@
             </h2>
             <p class="image-caption">{{ image.Copyright }}</p>
           </div>
-          <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
-            <button class="btn">More</button>
-          </nuxt-link>
+          <buttonToChild></buttonToChild>
         </section>
 
         <section class="image text-left text-top" v-if="image.Size === 'small'">
@@ -62,9 +58,7 @@
               <!-- <span class="image-copy">Foto blabla</span> -->
             </div>
           </div>
-          <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
-            <button class="btn">More</button>
-          </nuxt-link>
+          <buttonToChild></buttonToChild>
         </section>
       </div>
     </div>
