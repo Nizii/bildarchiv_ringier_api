@@ -15,6 +15,7 @@ namespace WebApplication1.Models
         public string Copyright { get; set; }
         public string Filetext { get; set; }
         public bool Haschild { get; set; }
+        public bool Title { get; set; }
         public string Link { get { return PHOTO_URL + Filename; } }
     }
 }
