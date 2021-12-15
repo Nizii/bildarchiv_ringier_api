@@ -9,7 +9,14 @@
       :key="index"
       :class="[`figure-${index}`]"
     >
-      
+      <nav>
+        <img
+          class="fixed top-0 left-0 right-0"
+          src="UI/assets/img/logo.svg"
+          alt="Abstraktes Logo"
+        />
+        <a href="/">Menü</a>
+      </nav>
       <navigation></navigation>
       <div class="top-pages" v-if="image.Category.length == 1">
         <section

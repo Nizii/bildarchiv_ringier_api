@@ -9,8 +9,22 @@
       :key="index"
       :class="[`figure-${index}`]"
     >
-      
-      <navigation></navigation>
+      <nav>
+        <img
+          class="fixed top-0 left-0 right-0"
+          src="UI/assets/img/logo.svg"
+          alt="Abstraktes Logo"
+        />
+        <a href="/">Menü</a>
+
+          <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+    <div class="py-1" role="none">
+      <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+      <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Impressum</a>
+      <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Home</a>
+    </div>
+      </nav>
+
       <div class="top-pages" v-if="image.Category.length == 1">
         <section
           v-if="image.Size === 'large'"
