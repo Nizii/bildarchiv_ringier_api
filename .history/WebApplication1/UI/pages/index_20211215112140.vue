@@ -9,6 +9,7 @@
       :key="index"
       :class="[`figure-${index}`]"
     >
+      
       <navigation></navigation>
       <div class="top-pages" v-if="image.Category.length == 1">
         <section
@@ -25,7 +26,7 @@
             </div>
           </div>
           <span class="image-copy">Foto: blablabla</span>
-          <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
+          <nuxt-link v-if="image.Category === 'b'" :to="`/${image.Category}`">
             <button class="btn">More</button>
           </nuxt-link>
         </section>
@@ -37,7 +38,7 @@
           <div class="image-container">
             <div class="image-section">
               <img :src="image.Link" :alt="image.Name" class="image-src" />
-              <!-- <span class="image-copy">Foto: blablabla</span> -->
+              <span class="image-copy">Foto: blablabla</span>
             </div>
           </div>
           <div class="image-aside">
@@ -46,7 +47,10 @@
             </h2>
             <p class="image-caption">{{ image.Copyright }}</p>
           </div>
-          <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
+          <nuxt-link
+            v-if="image.Category === 'h' || image.Category === 'n'"
+            :to="`/${image.Category}`"
+          >
             <button class="btn">More</button>
           </nuxt-link>
         </section>
@@ -59,12 +63,9 @@
           <div class="flex image-container">
             <div class="image-section">
               <img :src="image.Link" :alt="image.Name" class="image-src" />
-              <!-- <span class="image-copy">Foto blabla</span> -->
+              <span class="image-copy">Foto blabla</span>
             </div>
           </div>
-          <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
-            <button class="btn">More</button>
-          </nuxt-link>
         </section>
       </div>
     </div>
