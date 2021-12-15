@@ -13,6 +13,9 @@ namespace WebApplication1.Models
         public string Description { get; set; }
         public string Size { get; set; }
         public string Filename { get; set; }
+        public string Copyright { get; set; }
+        public string Filetext { get; set; }
+        public bool Haschild { get; set; }
         public string Link { get { return PHOTO_URL + Filename; } }
     }
 }
