@@ -1,11 +1,7 @@
 <template>
   <nav>
-    <!-- <img
-      class="fixed top-0 left-0 right-0"
-      src="UI/assets/img/logo.svg"
-      alt="Abstraktes Logo"
-    /> -->
-    <!-- <a href="/">Menü</a> -->
+    
+    <!-- <a href="/">Menü</a> !-->
 
     <div class="dropdown inline-block relative">
       <button
@@ -19,9 +15,12 @@
           items-center
         "
       >
-        <span>menu</span>
+      <img
+      class="fixed"
+      src="../assets/img/logo.svg"
+      alt="Abstraktes Logo">
       </button>
-      <ul class="dropdown-content absolute hidden pt-1">
+      <ul class="dropdown-content absolute hidden pt-10">
         <li>
           <NuxtLink
             class="rounded bg-white-200 hover:bg-gray-800 py-2 px-4 block"
@@ -34,6 +33,13 @@
             class="rounded bg-white-200 hover:bg-gray-800 py-2 px-4 block"
             to="/impressum"
             >Impressum</NuxtLink
+          >
+        </li>
+        <li>
+          <NuxtLink
+            class="rounded bg-white-200 hover:bg-gray-800 py-2 px-4 block"
+            to="/datenschutz"
+            >Datenschutz</NuxtLink
           >
         </li>
       </ul>

@@ -29,6 +29,7 @@ body {
   color: var(--black);
   font-size: 16px;
   font-family: "IBM Plex Mono", monospace;
+  overscroll-behavior-y: none;
 }
 
 nav {
@@ -141,6 +142,7 @@ section.image {
   font-size: clamp(0.5rem, 10vw, 1.5rem);
   line-height: 140%;
   position: relative;
+  margin-bottom: 2rem;
 }
 
 .text-center .image-text {
@@ -148,7 +150,6 @@ section.image {
   /* font-size: 3rem; */
   font-size: clamp(1rem, 10vw, 3rem);
   font-weight: 300;
-  margin-bottom: 1rem;
 }
 
 .image-text::before {
@@ -162,4 +163,8 @@ section.image {
 
 .text-center .image-text::before {
   content: none;
+}
+
+.btn {
+  margin-top: 1rem;
 }

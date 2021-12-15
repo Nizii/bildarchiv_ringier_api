@@ -22,12 +22,13 @@
             <div class="image-aside">
               <h3 class="image-text">{{ image.Filetext }}</h3>
               <p class="image-caption">{{ image.Title }}</p>
+              <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
+                <button class="btn">More</button>
+              </nuxt-link>
             </div>
             <span class="image-copy">{{ image.Copyright }}</span>
           </div>
-          <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
-            <button class="btn">More</button>
-          </nuxt-link>
+          
         </section>
 
         <section
@@ -45,16 +46,19 @@
               {{ image.Filetext }}
             </h2>
             <p class="image-caption">{{ image.Title }}</p>
+            <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
+                <button class="btn">More</button>
+            </nuxt-link>
           </div>
-          <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
-            <button class="btn">More</button>
-          </nuxt-link>
         </section>
 
         <section class="image text-left text-top" v-if="image.Size === 'small'">
           <div class="image-aside">
             <h2 class="image-text">{{ image.Filetext }}</h2>
             <p class="image-caption">{{ image.Title }}</p>
+            <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
+                <button class="btn">More</button>
+            </nuxt-link>
           </div>
           <div class="flex image-container">
             <div class="image-section">
@@ -62,9 +66,6 @@
               <span class="image-copy">{{ image.Copyright }}</span>
             </div>
           </div>
-          <nuxt-link v-if="image.Haschild" :to="`/${image.Category}`">
-            <button class="btn">More</button>
-          </nuxt-link>
         </section>
       </div>
     </div>
@@ -102,7 +103,7 @@ export default {
 </script>
 
 <style>
-.btn {
+/*.btn {
   @apply bg-transparent border border-black text-black hover:bg-black hover:text-white text-center py-2 px-4 rounded;
-}
+}*/
 </style>
