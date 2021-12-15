@@ -4,18 +4,15 @@
     transition: transform 3s;
 }
 .fade-leave-active {
-    transition: transform 0.5s ;
-    opacity: 0.5;
-    /* transform: translateY(-300px); */
-
-
+    transition: transform 3s ;
 }
 .fade-enter {
-  transition: transform 3s;
-
+    color: mediumblue;
+    transform: translateY(20px);
 }
 .fade-leave-to {
     transform: translate3d(-500px, -300px 400px);
+    color: cyan;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=IBM+Plex+Sans:wght@300;500&display=swap");

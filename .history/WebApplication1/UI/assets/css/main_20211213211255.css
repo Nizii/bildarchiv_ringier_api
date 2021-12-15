@@ -1,21 +1,10 @@
-
-
-  .fade-enter-active {
-    transition: transform 3s;
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
 }
-.fade-leave-active {
-    transition: transform 0.5s ;
-    opacity: 0.5;
-    /* transform: translateY(-300px); */
-
-
-}
-.fade-enter {
-  transition: transform 3s;
-
-}
-.fade-leave-to {
-    transform: translate3d(-500px, -300px 400px);
+.page-enter,
+.page-leave-to {
+  opacity: 0;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=IBM+Plex+Sans:wght@300;500&display=swap");
@@ -101,17 +90,17 @@ section.image {
   right: 1rem;
   background: var(--red);
   padding: 1rem 1rem;
-  opacity: 1; /*doesnt work correctly */
+  opacity: 0;
   max-width: calc(100% - 4rem);
 }
 
-/* .image-src:hover + .image-copy {
+.image-src:hover + .image-copy {
   opacity: 1;
-} */
+}
 
-/* .image-bg:hover .image-copy {
+.image-bg:hover .image-copy {
   opacity: 1;
-} */
+}
 
 .image-aside {
   padding: 6rem 4rem 4rem 4rem;
@@ -136,23 +125,20 @@ section.image {
   color: var(--white);
 }
 
-.image-text {
+/* .image-text {
   font-family: "IBM Plex Mono";
   font-weight: 300;
-  /* font-size: 1.5rem; */
-  font-size: clamp(0.5rem, 10vw, 1.5rem);
+  font-size: 1.5rem;
   line-height: 140%;
   position: relative;
-}
+} */
 
-.text-center .image-text {
+/* .text-center .image-text {
   line-height: 110%;
-  /* font-size: 3rem; */
-  font-size: clamp(1rem, 10vw, 3rem);
-
+  font-size: 3rem;
   font-weight: 300;
   margin-bottom: 1rem;
-}
+} */
 
 .image-text::before {
   content: "";

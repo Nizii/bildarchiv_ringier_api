@@ -1,24 +1,18 @@
 <template>
-  <!-- <div class="hello">
-    <h1>peace</h1>
-    <h1>{{ images }}</h1>
-  </div> -->
-  <div class="category">
+  <div class="images">
     <figure
       v-for="(image, index) in images"
       :key="index"
       :class="[`figure-${index}`]"
     >
-      <div
-        class="top-pages"
-        v-if="image.Category.endsWith($route.params.Category)"
-      >
-        <section>
+      <div class="top-pages" v-if="image.Category.length == 1">
+        <section class="w-full h-screen">
           <img
+            class="object-cover w-full h-full"
             :src="image.Link"
             :alt="image.Name"
             :id="[`image-${image.PhotoId}`]"
-            :class="[`category--${image.Category}`]"
+            :class="[`category-${image.Category}`]"
           />
         </section>
         <figCaption :id="[`image-title-${image.PhotoId}`]" class="caption">
@@ -27,13 +21,12 @@
         <div :id="[`description-${image.PhotoId}`]" class="description">
           {{ image.Description }}
         </div>
-
-        <h3 class="image-text">{{ image.Description }}</h3>
-        <p class="image-caption">{{ image.Filename }}</p>
-        <span class="image-copy">Foto: blablabla</span>
       </div>
+
+      <nuxt-link v-if="image.Category.length == 1" :to="`/${image.Category}`">
+        <button class="button-to-subpage">transition</button>
+      </nuxt-link>
     </figure>
-    <button class="border" @click="handleBack">Go back</button>
   </div>
 </template>
 
@@ -49,10 +42,20 @@ export default {
       .get("http://bildarchivaarau.azurewebsites.net/api/photo")
       .then((res) => res.data.filter((e) => e.Category.length === 2));
   },
-  methods: {
-    handleBack() {
-      this.$router.go(-1);
-    },
-  },
 };
 </script>
+
+
+<style scoped>
+.category-1 {
+  border: 10px solid red;
+}
+
+.category-2 {
+  border: 10px solid blue;
+}
+
+.button-to-subpage {
+  border: 10px solid green;
+}
+</style>
