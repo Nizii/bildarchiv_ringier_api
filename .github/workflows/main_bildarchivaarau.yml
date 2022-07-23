@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'BildarchivAarau'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CC16FCD4C62040278EAEF6C0347BD7EE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A0E76A2A5FCE4792847FACCA05ED7B62 }}
           package: .
